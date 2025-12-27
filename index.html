@@ -1,16 +1,31 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <title>Mon site légal</title>
-</head>
-<body>
-  <h1>Bienvenue sur mon site</h1>
+<hr>
 
-<p>
-  <a href="mentions-legales.html">Mentions légales</a> |
-  <a href="politique-confidentialite.html">Politique de confidentialité</a> |
-  <a href="cgv.html">CGV</a>
-</p>
-</body>
-</html>
+<h2>Choisissez votre option</h2>
+
+<label>
+  <input type="checkbox" id="cgv">
+  J’ai lu et j’accepte les
+  <a href="cgv.html" target="_blank">Conditions Générales de Vente</a>
+</label>
+
+<br><br>
+
+<button class="pay" data-link="https://buy.stripe.com/14A3co1qt0yi0OtfSrds402" disabled>🎬 Option Films</button><br><br>
+<button class="pay" data-link="https://buy.stripe.com/00weV63yBbcWcxb49Jds401" disabled>📺 Option Séries</button><br><br>
+<button class="pay" data-link="https://buy.stripe.com/dRm6oAglna8Sbt7cGfds400" disabled>🎞️ Option Animés</button><br><br>
+<button class="pay" data-link="https://buy.stripe.com/9B67sEfhjep81Sx6hRds403" disabled>⭐ Option Tout inclus</button>
+
+<script>
+  const checkbox = document.getElementById("cgv");
+  const buttons = document.querySelectorAll(".pay");
+
+  checkbox.addEventListener("change", () => {
+    buttons.forEach(btn => btn.disabled = !checkbox.checked);
+  });
+
+  buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      window.location.href = btn.dataset.link;
+    });
+  });
+</script>
