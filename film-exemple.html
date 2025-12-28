@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Film exemple</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <a href="index.html">Accueil</a>
+  <a href="catalogue.html">Catalogue</a>
+</nav>
+
+<div class="container">
+  <div class="page">
+    <h1>Film exemple</h1>
+    <p>Film libre de droit – domaine public.</p>
+
+    <div id="player"></div>
+
+    <p style="margin-top:15px;">
+      ⚠️ Ce contenu est disponible uniquement pour les abonnés.
+    </p>
+  </div>
+</div>
+
+<script>
+const user = localStorage.getItem("user");
+
+if (!user) {
+  document.getElementById("player").innerHTML =
+    "<p>🔒 Connectez-vous pour accéder au lecteur.</p>";
+} else {
+  document.getElementById("player").innerHTML = `
+    <iframe
+      src="https://archive.org/embed/NightOfTheLivingDead_201610"
+      width="100%"
+      height="400"
+      frameborder="0"
+      allowfullscreen>
+    </iframe>
+  `;
+}
+</script>
+
+</body>
+</html>
