@@ -1,19 +1,60 @@
-<hr>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Plateforme Streaming</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-<h2>Choisissez votre option</h2>
+<nav>
+  <a href="index.html">Accueil</a>
+  <a href="mentions-legales.html">Mentions légales</a>
+  <a href="politique-confidentialite.html">Confidentialité</a>
+  <a href="cgv.html">CGV</a>
+</nav>
 
-<label>
-  <input type="checkbox" id="cgv">
-  J’ai lu et j’accepte les
-  <a href="cgv.html" target="_blank">Conditions Générales de Vente</a>
-</label>
+<div class="container">
+  <h1>Bienvenue sur la plateforme</h1>
+  <p>Découvrez films, séries et animés accessibles par abonnement.</p>
 
-<br><br>
+  <div class="cgv-box">
+    <label>
+      <input type="checkbox" id="cgv">
+      J’accepte les <a href="cgv.html" target="_blank">CGV</a>
+    </label>
+  </div>
 
-<button class="pay" data-link="https://buy.stripe.com/14A3co1qt0yi0OtfSrds402" disabled>🎬 Option Films</button><br><br>
-<button class="pay" data-link="https://buy.stripe.com/00weV63yBbcWcxb49Jds401" disabled>📺 Option Séries</button><br><br>
-<button class="pay" data-link="https://buy.stripe.com/dRm6oAglna8Sbt7cGfds400" disabled>🎞️ Option Animés</button><br><br>
-<button class="pay" data-link="https://buy.stripe.com/9B67sEfhjep81Sx6hRds403" disabled>⭐ Option Tout inclus</button>
+  <div class="options">
+    <div class="option-card">
+      <h3>🎬 Films</h3>
+      <p class="price">7,99 € / mois</p>
+      <button class="pay" data-link="LIEN_STRIPE_FILMS" disabled>S’abonner</button>
+    </div>
+
+    <div class="option-card">
+      <h3>📺 Séries</h3>
+      <p class="price">7,99 € / mois</p>
+      <button class="pay" data-link="LIEN_STRIPE_SERIES" disabled>S’abonner</button>
+    </div>
+
+    <div class="option-card">
+      <h3>🎞️ Animés</h3>
+      <p class="price">7,99 € / mois</p>
+      <button class="pay" data-link="LIEN_STRIPE_ANIMES" disabled>S’abonner</button>
+    </div>
+
+    <div class="option-card">
+      <h3>⭐ Tout inclus</h3>
+      <p class="price">20,99 € / mois</p>
+      <button class="pay" data-link="LIEN_STRIPE_TOUT" disabled>S’abonner</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  © 2025 – Plateforme Streaming
+</footer>
 
 <script>
   const checkbox = document.getElementById("cgv");
@@ -29,3 +70,6 @@
     });
   });
 </script>
+
+</body>
+</html>
