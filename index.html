@@ -13,6 +13,8 @@
   <a href="mentions-legales.html">Mentions légales</a>
   <a href="politique-confidentialite.html">Confidentialité</a>
   <a href="cgv.html">CGV</a>
+  <a href="login.html" id="loginLink">Connexion</a>
+<a href="#" id="logoutLink" style="display:none;">Déconnexion</a>
 </nav>
 
 <div class="container">
@@ -70,6 +72,26 @@
       window.location.href = btn.dataset.link;
     });
   });
+</script>
+
+<script>
+const user = localStorage.getItem("user");
+const devices = JSON.parse(localStorage.getItem("devices")) || [];
+
+if (user) {
+  document.getElementById("loginLink").style.display = "none";
+  document.getElementById("logoutLink").style.display = "inline";
+
+  const info = document.createElement("p");
+  info.textContent = `Connecté : ${user} — Appareils : ${devices.length} / 5`;
+  info.style.marginTop = "15px";
+  document.querySelector(".container").prepend(info);
+}
+
+document.getElementById("logoutLink").onclick = () => {
+  localStorage.clear();
+  location.reload();
+};
 </script>
 
 </body>

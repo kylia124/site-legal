@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Connexion</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <a href="index.html">Accueil</a>
+  <a href="catalogue.html">Catalogue</a>
+</nav>
+
+<div class="container">
+  <div class="page">
+    <h1>Connexion / Inscription</h1>
+
+    <p>Entrez votre email pour créer ou accéder à votre compte.</p>
+
+    <input type="email" id="email" placeholder="Email" style="width:100%;padding:10px;margin-top:10px;">
+    <button onclick="login()">Se connecter</button>
+
+    <p id="msg" style="margin-top:15px;"></p>
+  </div>
+</div>
+
+<script>
+function login() {
+  const email = document.getElementById("email").value;
+  if (!email) {
+    alert("Veuillez entrer un email");
+    return;
+  }
+
+  localStorage.setItem("user", email);
+
+  let devices = JSON.parse(localStorage.getItem("devices")) || [];
+  if (!devices.includes(navigator.userAgent)) {
+    if (devices.length >= 5) {
+  alert("Limite de 5 appareils atteinte");
+  return;
+}
+devices.push(navigator.userAgent);
+    localStorage.setItem("devices", JSON.stringify(devices));
+  }
+
+  window.location.href = "index.html";
+}
+</script>
+
+</body>
+</html>

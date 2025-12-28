@@ -57,10 +57,15 @@
   © 2025 – Plateforme Streaming
 </footer>
 
-<script>
-  function locked() {
-    alert("🔒 Vous devez être abonné pour regarder ce contenu.");
+<<script>
+function locked() {
+  const user = localStorage.getItem("user");
+  if (!user) {
+    alert("Veuillez vous connecter pour continuer");
+  } else {
+    alert("Abonnement requis pour regarder ce contenu");
   }
+}
 </script>
 
 </body>
